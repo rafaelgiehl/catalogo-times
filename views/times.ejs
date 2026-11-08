@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Times</title>
+</head>
+<body>
+    <h1>Catalogo de Times</h1>
+    <p><a href="/">Inicio</a></p>
+
+    <% if (listaTimes && listaTimes.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Estadio</th>                    
+                    <th>Cidade</th>
+                    <th>Acao</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% listaTimes.forEach(time => { %>
+                    <tr>
+                        <td><%= time.id %></td>
+                        <td><%= time.nome %></td>
+                        <td><%= time.estadio %></td>
+                        <td><%= time.cidade %></td>
+                        <td><a href="/times/<%= time.id %>">Detalhes</a></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p>Nenhum time encontrado.</p>
+    <% } %>
+</body>
+</html>
